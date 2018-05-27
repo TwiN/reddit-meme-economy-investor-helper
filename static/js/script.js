@@ -54,7 +54,6 @@ function generateOrUpdateChart(keys, values) {
             }
         });
     } else {
-        console.log("updating");
         chart.data.labels = keys;
         chart.data.datasets.data = values;
         chart.update();
