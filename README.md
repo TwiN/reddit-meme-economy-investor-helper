@@ -6,7 +6,11 @@ With the recent arrival of [MemeInvestor_bot](https://www.reddit.com/user/MemeIn
 Thus, `reddit-meme-economy-investor-helper` has seen the light.
 
 Every 5 seconds, the total score of the given post will be fetched and added to a dictionary.
-This dictionary will then be converted into json, and used to generate a line chart.
+This dictionary will then be converted into json, and used to generate a line chart with Chart.js.
+
+![reddit-meme-economy-investor-helper](https://twinnation.org/api/screenshots/2018-05-27_150850.png)
+
+This project is just for fun, feel free to PR if you want to implement any new features.
 
 
 ## Requirements 

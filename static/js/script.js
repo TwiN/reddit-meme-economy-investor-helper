@@ -1,3 +1,5 @@
+let chart = null;
+
 $(function () {
     refreshChart();
     setInterval(refreshChart, 5000);
@@ -16,39 +18,46 @@ function refreshChart() {
             keys.push(k);
             values.push(data[k]);
         }
-        generateChart(keys, values)
+        generateOrUpdateChart(keys, values)
     });
 }
 
 
-function generateChart(keys, values) {
-    new Chart(document.getElementById("bar-chart"), {
-        type: 'line',
-        data: {
-            labels: keys,
-            datasets: [{
-                label: "Score",
-                data: values
-            }]
-        },
-        options: {
-            legend: { display: false },
-            title: {
-                display: true,
-                text: 'Score for targeted post'
+function generateOrUpdateChart(keys, values) {
+    if (chart == null) {
+        chart = new Chart(document.getElementById("bar-chart"), {
+            type: 'line',
+            data: {
+                labels: keys,
+                datasets: [{
+                    label: "Score",
+                    data: values
+                }]
             },
-            bezierCurve: false, // no curvy lines
-            xAxes: [{
-                type: 'time',
-                ticks: {
-                    autoSkip: true,
-                    maxTicksLimit: 20
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: 'Score for targeted post'
+                },
+                bezierCurve: false, // no curvy lines
+                xAxes: [{
+                    type: 'time',
+                    ticks: {
+                        autoSkip: true,
+                        maxTicksLimit: 20
+                    }
+                }],
+                animation: {
+                    duration: 0
                 }
-            }],
-            animation: {
-                duration: 0
             }
-        }
-    });
+        });
+    } else {
+        console.log("updating");
+        chart.data.labels = keys;
+        chart.data.datasets.data = values;
+        chart.update();
+    }
 }
 
