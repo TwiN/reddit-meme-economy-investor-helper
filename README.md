@@ -10,6 +10,8 @@ This dictionary will then be converted into json, and used to generate a line ch
 
 ![reddit-meme-economy-investor-helper](https://twinnation.org/api/screenshots/2018-05-27_151329.png)
 
+![reddit-meme-economy-investor-helper](https://twinnation.org/api/screenshots/2018-05-27_161322.png)
+
 This project is just for fun, feel free to PR if you want to implement any new features.
 
 
