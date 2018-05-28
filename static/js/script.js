@@ -1,4 +1,5 @@
 let chart = null;
+let model = "";
 
 
 $(function () {
@@ -14,9 +15,11 @@ function refreshChart() {
     $.getJSON('/scores', function (data) {
         $("#data").html(JSON.stringify(data));
         let keys = [], values = [];
+        model = "";
         for (let k in data) {
             keys.push(k);
             values.push(data[k]);
+            model += Object.keys(data).indexOf(k) + ","+data[k]+"\n";
         }
         generateOrUpdateChart(keys, values)
     });
