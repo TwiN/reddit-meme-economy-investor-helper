@@ -11,7 +11,6 @@ $(function () {
 
 function refreshChart() {
     $.getJSON('/scores', function (data) {
-        console.log(data);
         $("#data").html(JSON.stringify(data));
         let keys = [], values = [];
         for (let k in data) {
@@ -24,7 +23,6 @@ function refreshChart() {
 
 
 function updateTarget() {
-    console.log($("#current-target").val());
     $.ajax({
         method: "PUT",
         url: "/target",
@@ -70,7 +68,5 @@ function generateOrUpdateChart(keys, values) {
         chart.data.labels = keys;
         chart.data.datasets[0].data = values;
         chart.update();
-        console.log('updating the chart');
     }
 }
-
