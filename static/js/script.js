@@ -1,5 +1,6 @@
 let chart = null;
 
+
 $(function () {
     refreshChart();
     setInterval(refreshChart, 5000);
@@ -69,4 +70,31 @@ function generateOrUpdateChart(keys, values) {
         chart.data.datasets[0].data = values;
         chart.update();
     }
+    updateStats(values);
+}
+
+
+function getSumOfValues(values) {
+    let sum = 0;
+    for (let i in values) {
+        sum += values[i];
+    }
+    return sum;
+}
+
+
+function getAverage(values) {
+    return getSumOfValues(values)/values.length;
+}
+
+
+function updateStats(values) {
+    let average = getAverage(values);
+    let min = Math.min(...values);
+    let max = Math.max(...values);
+    $('#stats-avg').html(Math.round(average * 10) / 10);
+    $('#stats-min').html(min);
+    $('#stats-max').html(max);
+    $('#stats-entries').html(values.length);
+    $('#stats-current').html(values[values.length-1]);
 }

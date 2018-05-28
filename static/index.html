@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2 class="text-center">reddit-meme-economy-investor-helper</h2>
-    <div class="container">
+    <div class="container text-center">
         <div class="input-group mb-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">Current target</span>
@@ -18,13 +18,48 @@
             </div>
         </div>
         <pre id="data" style="overflow:auto;"></pre>
-    </div>
-
-    <div class="text-center">
         <input type="button" onclick="refreshChart()" class="btn btn-primary" value="Refresh" />
     </div>
 
-    <canvas id="bar-chart" class="p-3"></canvas>
+    <div class="w-100">
+        <div class="row p-0 m-0">
+            <div class="col-10">
+                <canvas id="bar-chart" class="p-1" height="125"></canvas>
+            </div>
+            <div class="col-2 text-center">
+                <h4>statistics</h4>
+                <table class="table table-bordered text-center">
+                    <tbody class="w-100">
+                        <tr>
+                            <th>entries</th>
+                            <td id="stats-entries"></td>
+                        </tr>
+                        <tr>
+                            <th>min</th>
+                            <td id="stats-min"></td>
+                        </tr>
+                        <tr>
+                            <th>max</th>
+                            <td id="stats-max"></td>
+                        </tr>
+                        <tr>
+                            <th>avg</th>
+                            <td id="stats-avg"></td>
+                        </tr>
+                        <tr>
+                            <th>current</th>
+                            <td id="stats-current"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
