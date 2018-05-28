@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from apscheduler.schedulers.background import BackgroundScheduler
 import praw
 import json
@@ -6,7 +6,7 @@ import os
 import datetime
 
 
-target_post = 'https://www.reddit.com/r/MemeEconomy/comments/8mhg5j/should_i_sell/'
+target_post: str = 'https://www.reddit.com/r/MemeEconomy/comments/8mhg5j/should_i_sell/'
 
 
 # To create a client_id/client_secret, visit https://www.reddit.com/prefs/apps/
@@ -34,9 +34,17 @@ def get_scores():
     return json.dumps(scores)
 
 
-@app.route('/target')
+@app.route('/target', methods=['GET'])
 def get_target():
     return json.dumps(target_post)
+
+
+@app.route('/target', methods=['PUT'])
+def update_target():
+    global target_post
+    target_post = request.get_json()['url']
+    scores.clear()
+    return json.dumps({'ERROR': False, 'MESSAGE': 'changed target_post to ' + target_post})
 
 
 if __name__ == '__main__':

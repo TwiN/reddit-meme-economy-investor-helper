@@ -23,6 +23,19 @@ function refreshChart() {
 }
 
 
+function updateTarget() {
+    console.log($("#current-target").val());
+    $.ajax({
+        method: "PUT",
+        url: "/target",
+        contentType: "application/json",
+        data: JSON.stringify({url: $("#current-target").val()})
+    }).done(function(data) {
+        alert(data);
+    });
+}
+
+
 function generateOrUpdateChart(keys, values) {
     if (chart == null) {
         chart = new Chart(document.getElementById("bar-chart"), {
@@ -57,6 +70,7 @@ function generateOrUpdateChart(keys, values) {
         chart.data.labels = keys;
         chart.data.datasets.data = values;
         chart.update();
+        console.log('updating the chart');
     }
 }
 
