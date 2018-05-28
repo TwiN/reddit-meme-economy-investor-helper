@@ -68,7 +68,7 @@ function generateOrUpdateChart(keys, values) {
         });
     } else {
         chart.data.labels = keys;
-        chart.data.datasets.data = values;
+        chart.data.datasets[0].data = values;
         chart.update();
         console.log('updating the chart');
     }
