@@ -6,7 +6,7 @@ import os
 import datetime
 
 
-target_post: str = 'https://www.reddit.com/r/MemeEconomy/comments/8mhg5j/should_i_sell/'
+target_post: str = 'https://www.reddit.com/r/MemeEconomy/comments/8ock6k/acquire_everything/'
 
 
 # To create a client_id/client_secret, visit https://www.reddit.com/prefs/apps/
