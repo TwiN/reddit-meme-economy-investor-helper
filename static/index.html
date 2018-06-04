@@ -56,6 +56,20 @@
         </div>
     </div>
 
+    <div class="container">
+        <h2>Investment Profit Calculator</h2>
+        <div class="row text-center">
+            <div class="input-group col-9">
+                <input type="text" id="investment-amount" placeholder="Memecoins invested" class="form-control" />
+                <input type="text" id="investment-start-score" placeholder="Score on initial investment" class="form-control" />
+                <input type="text" id="investment-end-score" placeholder="Estimated score after 4 hours" class="form-control" />
+                <input type="button" onclick="estimateInvestmentResult()" value="Estimate" class="btn btn-primary" />
+            </div>
+            <div class="col-1">-&gt;</div>
+            <div id="investment-result" class="col-2"></div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

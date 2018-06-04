@@ -101,3 +101,38 @@ function updateStats(values) {
     $('#stats-entries').html(values.length);
     $('#stats-current').html(values[values.length-1]);
 }
+
+function estimateInvestmentResult() {
+    let start = parseInt($('#investment-start-score').val());
+    let end = parseInt($('#investment-end-score').val());
+    let amount = parseInt($('#investment-amount').val());
+
+    const SCALE_FACTOR = 1 / 3.0;
+    let relativeChange = 0;
+
+    console.log(start, end);
+    if (start !== 0) {
+        relativeChange = (end - start) / Math.abs(start);
+    } else {
+        relativeChange = end;
+    }
+
+    let multiple = Math.pow(relativeChange + 1, SCALE_FACTOR);
+    let investmentSuccess = false, returnMoney = false;
+
+    const WIN_THRESHOLD = 1.2;
+    if (multiple > WIN_THRESHOLD) {
+        investmentSuccess = returnMoney = true;
+    } else if (multiple > 1) {
+        returnMoney = true;
+    }
+
+    let factor = 0;
+    if (investmentSuccess) {
+        factor = multiple;
+    } else if (returnMoney) {
+        factor = (multiple - 1)/(WIN_THRESHOLD - 1);
+    }
+
+    $('#investment-result').html(parseInt((amount * factor)+""));
+}
